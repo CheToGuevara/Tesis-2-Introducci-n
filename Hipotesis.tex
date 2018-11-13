@@ -1,0 +1,65 @@
+
+\section{Motivación}
+\label{intro:motivacion}
+%\del{\todo{o pones citas o no haces estas aseveraciones} El uso de simuladores de realidad virtual en medicina es muy beneficioso al poder crear entornos seguros y reproducibles para los usuarios\todo{ una cita}. El auge que han tenido estos simuladores es gracias a su idoneidad para el entrenamiento y la enseñanza de los procedimientos médicos, consiguiendo una gran aceptación en todos los campos de la medicina\todo{cita}.  Aun así, la diversidad de procedimientos y la complejidad del cuerpo humano y llevar a cabo cada tipo de simulación diferente son las principales dificultades que se presentan en un futuro a corto plazo.  Los principales problemas que se han encontrado en los diferentes simuladores médicos son los siguientes:}
+
+%\todo{ 1. tienes que hablar de la importancia de tener una libreria de pacientes 2. de la necesidad adapatarlos a la pose de operación y 3 de las aplicacioens que necesitan modificar la pose en tiempo real.  Habla de los problemas de las ténicas de posing existentes. tienes que hablar de los problemas de posing a la hora crear librerías validas para un determinado procedimiento con una poses estática o la importancia de poder cambiar la pose en el procedimiento como con los x-ray. Indicar los problemas a la hora de modificar geometrias incompletas sin descripcion de comportamiento....}
+%\todo{He visto que mucho de lo que te he dicho está en los párrafos siguientes. Reestructúralo y lo vuelvo a corregir. Recuerda. Todo lo que quieres que me vuelva a leer ponlo con new.}
+
+\new{ En el contexto de la simulación para entrenamiento es importante que un profesional sanitario en formación se enfrente a la mayor multitud de variaciones anatómicas. En general, los simuladores médicos utilizan modelos anatómicos específicos que no representan toda la variabilidad posible para entrenar el procedimiento. Es habitual también que estos modelos sean estáticos y no puedan ser transferidos entre simuladores. Nuevos plataformas de entrenamiento médico están incorporando datos de pacientes reales en los simuladores} \cite{Willaert2012,Votta2013}. \new{Este enfoque no esta exento de problemas ya que:}
+\begin{enumerate}
+   %\item Los datos anatómicos de los pacientes virtuales son estáticos y representan poca variabilidad.
+    %\item En cada simulador se suele crear modelos anatómicos específicos y no son transferibles entre ellos.
+    \item \new{No siempre están disponibles información específica del paciente o solo se trata de una zona concreta del paciente.}
+    \item \new{No es habitual que el método de adquisición de imagen pueda recuperar todos los tejidos de la zona anatómica.}
+    \item \new{No se han capturado las propiedades mecánica de todos o alguno de los tejidos que componen la zona anatómica.}
+    \item \new{En ocasiones los datos anatómicos muestran una posición diferente a la requerida por el procedimiento médico a simular.}
+\end{enumerate}
+\new{ Por tanto, se hace necesario disponer de algún método que pueda capturar variaciones anatómicas y poderlas incorporarlas al simulador que se estuviera utilizando. En este caso, en lugar de tener un modelo anatómico con una configuración concreta, % En la motivación, cuando hables de la base de datos, di que en muchas aplicaciones lo importante es la variabilidad anatómica, no trabajar con pacientes reales. }
+basta con poder transformar cualquier modelo de paciente virtual existente en una pose plausible, pudiéndose utilizarlo en cualquier simulador que así lo requiera. De esta forma, se intenta abarcar la mayor cantidad posible de situaciones que puedan ayudar a los aprendices a mejorar su entrenamiento y por tanto su profesionalidad.}
+ 
+\new{Dentro de la generación de imágenes por computador, existen diferentes técnicas para poder animar personajes virtuales. Es habitual que estos métodos sean utilizados para animar estructuras anatómicas con diversas finalidades como pueden ser cinematográfica, lúdica o sanitarias. Estas técnicas suelen ser divididas comúnmente entre métodos geométricos y métodos basados en física. Cada uno de ellos tiene ventajas sobre los otros y su uso se extiende en base a sus características. }
+
+\new{Considerando los problemas citados anteriormente y dentro del contexto del proyecto europeo \ac{RASimAs}, la motivación de esta tesis es comprobar si es posible diseñar un método geométrico que pueda solventar esos problemas. A continuación se muestran las ventajas que tienen las técnicas geométricas frente a los métodos basados en físicas:}
+
+\begin{itemize}
+\item \new{Los métodos basados en físicas se centran en conseguir deformaciones realistas, frente a los geométricos que proporcionan soluciones plausibles aunque no sean precisos desde el punto de vista físico.}
+
+\item \new{Es habitual que los métodos geométricos tengan tasas de refresco altas en comparación a los algoritmos basados en físicas que hacen que sea demasiado costoso conseguir interactividad o sea necesario intervención de un usuario por su complejidad.}
+
+\item \new{Los algoritmos geométricos son más robustos ante la falta de una descripción completa de un modelo anatómico. Debido a las dificultades que tienen la adquisición de imágenes médicas, no es habitual que todas las estructuras anatómicas estén presente o se pueda capturar el comportamiento de todas ellas.}
+    
+\item \new{Debido a su popularidad, actualmente los métodos geométricos están diseñados para aprovechar totalmente la arquitectura de las tarjetas gráficas.}
+    
+\item \new{Los modelos basados en físicas están muy extendidos, aunque en su gran mayoría se centran solo en el sistema musculoesqueletal.}
+\end{itemize}
+
+\new{Disponer de un método geométrico que deforme modelos anatómicos humanos ayudará a:}
+
+\begin{itemize}
+    \item \new{Poder modificar cualquier modelo virtual con estructuras anatómicas internas a la posición requerida por un procedimiento médico.}
+    \item \new{Poder tratar datos de paciente aunque estos presenten tejidos incompletos o no se hayan registrado sus propiedades mecánicas.}
+    \item \new{El método permite una interacción inmediata y servirá para utilizarse en simuladores de entrenamiento médico.}
+    \item \new{Su flexibilidad y su rapidez le hacen posible incorporarlo en cualquier simulador o herramienta de \ac{RV}.}
+\end{itemize}
+
+
+\section{Hipótesis de partida} 
+\label{intro:hipotesis}
+\todo{la hipotesis de partida es buena}
+Con las motivaciones anteriormente descritas, se procede a formular la siguiente hipótesis de partida:
+
+%\emph{es posible crear un método geométrico para animar modelos anatómicos humanos en tiempo real del que no se posean completamente todos sus tejidos o propiedades mecánicas que pueda ser utilizado en simuladores médicos para entrenar nuevos médicos. }
+
+%\emph{ En el contexto del entrenamiento en simuladores médicos, se pueden diseñar algoritmos geométricos capaces de adaptar la antinomia del paciente virtual a la pose requerida en el procedimiento simulado de forma que la transferencia de competencias sea efectivo.}
+
+
+\emph{es posible diseñar un algoritmo geométrico capaz de adaptar modelos anatómicos de un paciente virtual desde una posición inicial a la pose requerida por un procedimiento médico y que sirvan para que la transferencia de competencias sea efectiva en el contexto de formación utilizando simuladores de realidad virtual. }
+
+
+
+% Hipótesis:
+% -        Método geométrico puede ser utilizado en el contexto de los médicos:
+% o   Datos incompletos (geométricos y mecánicos)
+% o   Velocidad para el tiempo real. 
+%o   Otras ideas

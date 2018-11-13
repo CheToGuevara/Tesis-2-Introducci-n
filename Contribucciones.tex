@@ -1,0 +1,26 @@
+\section{Contribuciones}
+\label{intro:contribuciones}
+
+La principal contribución de esta tesis es la presentación de un algoritmo geométrico que permite modificar un modelo de paciente virtual de una postura original a la posición requerida por cualquier simulador. Este algoritmo ha sido diseñado creando y adaptando técnicas establecidas en el cauce clásico de la animación esqueletal, pero que permite animar tanto los modelos superficiales clásicos como tejidos internos de un modelo de un paciente virtual.
+
+El algoritmo propuesto es capaz de solucionar dos grandes problemas que se pueden encontrar un usuario al animar anatomía humana. Por una parte, esta técnica es capaz de manejar datos incompletos, tanto por la ausencia de algunos tejidos dentro de la anatomía o por la falta de una completa descripción mecánica de los tejidos a animar. Esta ventaja ayuda a resolver casos donde los modelos procedentes de imágenes médicas sean locales y no contengan la descripción del paciente al completo. Por otra parte, esta técnica permite animaciones en tiempo real para que sea posible incorporarlo en cualquier simulador que lo necesite. El algoritmo es lo suficientemente rápido para mover la anatomía de un modelo de cuerpo entero permitiendo tasas interactivas al usuario.
+
+Con el objetivo de demostrar la utilidad de la técnica propuesta se ha procedido a incorporarla en dos simuladores médicos como ejemplos de casos de uso. 
+
+\subsection{Contribuciones a RASimAS}
+\todo{Creo que le falta peso al curseware}
+El proyecto \ac{RASimAs} es una de las motivaciones y parte financiadora de esta tesis, el algoritmo propuesto es una parte importante dentro de la consecución del simulador que representa uno de los dos pilares del proyecto europeo.  
+
+El algoritmo propuesto es parte de la herramienta \ac{TPTVPH} donde se encuentra varios procesos desde el registro de los datos del paciente al proceso de completar los tejidos y definir las propiedades mecánicas para poder crear el \ac{VPH}. Todos estos procesos son desarrollados por los demás socios del proyecto europeo y se ha trabajado conjuntamente con el desarrollo de esta tesis para la integración de la herramienta semi-automática \acs{TPTVPH}. 
+
+A su vez, esta herramienta forma parte del simulador \ac{RASim} ya que proporciona los modelos que se van a utilizar en la simulación. Al igual que en el caso anterior, se ha trabajado conjuntamente con los demás participantes del proyecto para completar este objetivo dejando la responsabilidad final al autor de esta tesis de la integración en una aplicación de aprendizaje .
+
+Por separado, se encuentra el módulo de ultrasonidos \cite{Law2015} que simula una sonda de ultrasonidos, el módulo físico de simulación física del comportamiento de la aguja con \cite{needleinsertion} utilizando la librería \ac{SOFA} y utilizando la plataforma \emph{H3D} \cite{sensegraphics2012open}. \new{Se ha desarrollado el módulo \ac{Courseware} que controla todos los componentes del simulador con el objetivo de proporcionar una plataforma de entrenamiento donde el usuario podrá practicar sus habilidades cognitivas y no cognitivas. La aplicación es capaz de recoger métricas con la finalidad de permitir un entrenamiento autónomo y proporcionar retroalimentación formativa y sumativa.}
+
+
+\subsection{Simulador de radiología diagnóstica}
+\new{El algoritmo presentado en esta tesis permite ser incorporado en cualquier simulador que requiera transformar la postura de un modelo anatómico con estructuras internas interactivamente. Como resultado de la colaboración con el Dr. Franck P. Vidal y la librería \emph{gVirtualXray}\cite{sujar:hal} que permite simular rayos X en tiempo real, se ha procedido a desarrollar un simulador completo de radiología diagnóstica con el objetivo de crear un herramienta complementaria interactiva tanto para los profesores como para los estudiantes de radiología. Al igual que \ac{RASim}, se ha desarrollado un \ac{Courseware} que permite al usuario practicar el procedimiento de forma guiada y autónoma a la vez que permite al profesor diseñar ejercicios de clase. }
+%\todo{Explica un poco el curseware y/o los modos de funcionamiento...}
+
+
+%cuales son mis contribuciones al simulador y que módulos han sido cogidos 

@@ -1,0 +1,64 @@
+\section{Objetivos}
+\label{intro:objetivos}
+%Con la  cuando la posición del paciente en el momento que se adquiere una imagen médica (por ejemplo \ac{IRM} o \ac{TC}) es normalmente diferente a la posición requerida por el procedimiento médico que se este simulando. A la vez, estas imágenes suelen ser locales y no son capaces de recuperar cada uno de los tejidos del paciente o su comportamiento mecánico.
+
+Con la hipótesis de partida enunciada, a continuación se presentan los objetivos principales que se pretenden alcanzar a lo largo de esta tesis:
+
+
+\begin{itemize}
+\item Diseño de algoritmo para de posicionamiento de modelos anatómicos desde una posición en la que fuero modelados hasta la posición requerida.
+\\
+%\todo{no puede ir en pasado son objetivos!!!!. Escríbelos como tales}
+\new{Se propone una técnica que permita transformar los modelos anatómicos de pacientes virtuales que originalmente se encuentra en una determinada postura, a una posición adecuada necesaria en el entrenamiento del procedimiento médico objetivo. La técnica propuesta es capaz de modificar un modelo anatómico con estructuras internas de manera interactiva, siendo esto posible aunque el modelo no fuera completo o no estuvieran disponibles las propiedades mecánicas de los tejidos. Por tanto, se van a especificar los siguientes requisitos: }
+%\todo{sin necesidad de disponer de una descripción mecánica de las porpiedades de los tejidos y incluso sin disponer de un modelo completo, es decir, no es necesario que estén modeladas todas las estructuras anatómicas. (Pon esto bonito)}
+
+\begin{itemize}
+%\todo{Yo aquí subdividirá el objetivo 1 en los requisitos de la técnica}
+    \item Debe funcionar en tasa interactivas.
+    \item Es capaz de adaptar la postura de modelos incompletos.
+    \item No necesita las descripciones mecánicas de los tejidos.
+    
+\end{itemize}
+
+%\todo{Tenemos que hablar.  2. La idea es probar el algortimo en dos casos de uso reales. Uno que demuestre que funciona con información incompleta y otro que demuestre que funciona en aplicaciones interactivas. Ojo con decir que probamos que la transferencia de conocimientos es adecuada, no lo hacemos!!!!. Tienes que insinuarlo sin dejarlo explicito.
+
+\item 	Validación del algoritmo. \\
+\del{Es necesario demostrar que el algoritmo propuesto cumple con las expectativas expuestas anteriormente.}  % Se mostrará los resultados obtenidos utilizando modelos de prueba, modelos anatómicos comerciales y modelos procedente de imágenes médicas de pacientes reales. 
+\new{Con el fin de demostrar las capacidades del algoritmo propuesto, se han planteado la incorporación de este en dos aplicaciones de \ac{RV} que servirán como casos de uso. En el primer caso, el algoritmo tiene que adaptar el modelo anatómico a la postura requerida por el simulador teniendo en cuenta que el modelo pueda ser incompleto o no estén disponible el comportamiento mecánico de los diferentes tejidos. En el segundo ejemplo, el simulador debe permitir al usuario poder modificar la postura del paciente virtual en tiempo real. Los casos de uso que se han planificado durante el desarrollo de esta tesis son los siguientes: }
+
+%Objetivos secunadrios:
+
+%- Objetivos del algoritmo
+
+%- Objetivos de los dos casos de uso.
+
+%--- Recureda. En el simuladador de anestesia regional no se cambia la pose en tiempo real (validamos descripciones incompletas)
+
+%--- El de radiología la selección de la pose es parte del comportamiento, aunque por otro lado hay menos estructuras anatomicas relevantes.
+
+\begin{itemize}
+    \item 	Caso de uso: Simulador de anestesia regional y herramienta \emph{offline}
+    
+    \new{Un objetivo del proyecto \ac{RASimAs} es la creación de una base de datos con pacientes virtuales que representen una variabilidad anatómica media que posteriormente será utilizada tanto en \ac{RASim} y \ac{RAAs}. Los modelos anatómicos de los que se dispone no siempre se encuentran completos o carecen de la descripción mecánica de los tejidos. 
+    El algoritmo propuesto se integrará en la herramienta \ac{TPTVPH} permitiendo animar y adaptar las variaciones anatómicas generadas. El método estará en comunicación con otros módulos desarrollados dentro del proyecto. Además, se desarrollará un \emph{software} (\acs{Courseware}) que se encargará de la comunicación con los demás módulos, y gestionará la interacción del usuario en una plataforma de entrenamiento auto guiada.}
+
+%\todo{Idea, no se necesitan pacientes reales sino pacientes medios. No se necesita una deformación presica, sino plausible}
+
+%\todo{No entiendo este segundo parrafo. Puedes hablar del curseware. No se porque hablas de los hapticos y del Hw eso va antes?????}
+    
+
+    \item Caso de uso: Simulador de radiología diagnóstica
+
+\new{En este caso de uso, el algoritmo propuesto permite al usuario modificar la postura del paciente con el objetivo de entrenar el procedimiento de radiología diagnóstica. En este procedimiento, el usuario debe posicionar al paciente virtual como se realiza en un entorno real, permitiendo obtener imágenes de rayos X simultáneamente, todo ello realizado en tiempos interactivos. Este simulador permite modificar la posición de un paciente virtual con el objetivo de comprobar distintas proyecciones radiográficas sin ningún riesgo para el paciente o el usuario. De esta forma, podrá ser usado por profesores o estudiantes de radiología como una herramienta adicional a los libros de texto.}
+\end{itemize}
+
+\end{itemize}
+
+% \begin{itemize}
+%     \item 	Diseño del entrenamiento y evaluación del simulador.
+% \end{itemize}
+
+% La \ac{RV} proporciona una herramienta muy útil para poder guiar y ayudar en el proceso de aprendizaje al usuario. Mediante tareas guiadas, el usuario podrá aprender y perfeccionar el procedimiento quirúrgico, que ayudará a suavizar así la curva de aprendizaje y reducir posibles riesgos en el futuro. El simulador permitirá empezar por los caso más sencillos e ir facilitando el entrenamiento de casos más complejos. El objetivo es, que el usuario aprenda desde las competencias más básicas hasta simulaciones de situaciones reales, intentando minimizar el tiempo de aprendizaje. El usuario puede repetir el entrenamiento hasta que adquiera las habilidades requeridas. Debido a que cada vez más están presentes los simuladores en el currículum de los estudiantes de medicina, es necesario  crear unas métricas que sean útiles para evaluar a los estudiantes de manera cualitativa.
+
+
+
