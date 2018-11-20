@@ -1,21 +1,23 @@
 \section{Objetivos}
 \label{intro:objetivos}
+\todo{Cuida más los objetivos. Mas o menos se entienden pero tienen que sonar claros y rigurosos.}
 %Con la  cuando la posición del paciente en el momento que se adquiere una imagen médica (por ejemplo \ac{IRM} o \ac{TC}) es normalmente diferente a la posición requerida por el procedimiento médico que se este simulando. A la vez, estas imágenes suelen ser locales y no son capaces de recuperar cada uno de los tejidos del paciente o su comportamiento mecánico.
 
-Con la hipótesis de partida enunciada, a continuación se presentan los objetivos principales que se pretenden alcanzar a lo largo de esta tesis:
+Con la hipótesis de partida enunciada, a continuación, se presentan los objetivos principales que se pretenden alcanzar a lo largo de la presente tesis:
 
-
+\todo{Asegurar que todo esta escrito en futuro}
 \begin{itemize}
-\item Diseño de algoritmo para de posicionamiento de modelos anatómicos desde una posición en la que fuero modelados hasta la posición requerida.
+\item Diseño de algoritmo para el posicionamiento de modelos anatómicos desde \new{la} posición en la que fueron modelados hasta \new{cualquier posicion requerida}\del{la posición requerida}.
 \\
 %\todo{no puede ir en pasado son objetivos!!!!. Escríbelos como tales}
-\new{Se propone una técnica que permita transformar los modelos anatómicos de pacientes virtuales que originalmente se encuentra en una determinada postura, a una posición adecuada necesaria en el entrenamiento del procedimiento médico objetivo. La técnica propuesta es capaz de modificar un modelo anatómico con estructuras internas de manera interactiva, siendo esto posible aunque el modelo no fuera completo o no estuvieran disponibles las propiedades mecánicas de los tejidos. Por tanto, se van a especificar los siguientes requisitos: }
+Se propone una técnica que permita transformar los modelos anatómicos de pacientes virtuales que originalmente se encuentran en una determinada postura, a una posición adecuada necesaria en el entrenamiento del procedimiento médico objetivo\todo{desde la coma suana raro}. 
+La técnica propuesta será capaz de modificar un modelo anatómico con estructuras internas de manera interactiva, siendo esto posible, aunque el modelo no fuera completo o no estuvieran disponibles las propiedades mecánicas de los tejidos. Por tanto, se van a especificar los siguientes requisitos: 
 %\todo{sin necesidad de disponer de una descripción mecánica de las porpiedades de los tejidos y incluso sin disponer de un modelo completo, es decir, no es necesario que estén modeladas todas las estructuras anatómicas. (Pon esto bonito)}
 
 \begin{itemize}
 %\todo{Yo aquí subdividirá el objetivo 1 en los requisitos de la técnica}
-    \item Debe funcionar en tasa interactivas.
-    \item Es capaz de adaptar la postura de modelos incompletos.
+    \item Debe funcionar en tasas interactivas.
+    \item Debe poder trabajar con modelos incompletos
     \item No necesita las descripciones mecánicas de los tejidos.
     
 \end{itemize}
@@ -24,7 +26,8 @@ Con la hipótesis de partida enunciada, a continuación se presentan los objetiv
 
 \item 	Validación del algoritmo. \\
 \del{Es necesario demostrar que el algoritmo propuesto cumple con las expectativas expuestas anteriormente.}  % Se mostrará los resultados obtenidos utilizando modelos de prueba, modelos anatómicos comerciales y modelos procedente de imágenes médicas de pacientes reales. 
-\new{Con el fin de demostrar las capacidades del algoritmo propuesto, se han planteado la incorporación de este en dos aplicaciones de \ac{RV} que servirán como casos de uso. En el primer caso, el algoritmo tiene que adaptar el modelo anatómico a la postura requerida por el simulador teniendo en cuenta que el modelo pueda ser incompleto o no estén disponible el comportamiento mecánico de los diferentes tejidos. En el segundo ejemplo, el simulador debe permitir al usuario poder modificar la postura del paciente virtual en tiempo real. Los casos de uso que se han planificado durante el desarrollo de esta tesis son los siguientes: }
+\todo{Los objetivos son muy importantes. Redacta esto mejor. }
+Con el fin de demostrar las capacidades del algoritmo propuesto, se han planteado la incorporación de este en dos aplicaciones de \ac{RV} que servirán como casos de uso. En el primer caso, el algoritmo tiene que adaptar el modelo anatómico a la postura requerida por el simulador, teniendo en cuenta que el modelo pueda ser incompleto o no estén disponibles el comportamiento mecánico de los diferentes tejidos. En el segundo ejemplo, el simulador debe permitir al usuario poder modificar la postura del paciente virtual en tiempo real. Los casos de uso que se han planificado durante el desarrollo de esta tesis son los siguientes: 
 
 %Objetivos secunadrios:
 
@@ -37,10 +40,10 @@ Con la hipótesis de partida enunciada, a continuación se presentan los objetiv
 %--- El de radiología la selección de la pose es parte del comportamiento, aunque por otro lado hay menos estructuras anatomicas relevantes.
 
 \begin{itemize}
-    \item 	Caso de uso: Simulador de anestesia regional y herramienta \emph{offline}
+    \item 	Caso de uso: Simulador de anestesia regional y herramienta \emph{offline}\todo{No me gusta que lo vendas como offline. Hemos vendio que un experto valida la pose por lo que la herramienta itne que ser interactiva.}:
     
-    \new{Un objetivo del proyecto \ac{RASimAs} es la creación de una base de datos con pacientes virtuales que representen una variabilidad anatómica media que posteriormente será utilizada tanto en \ac{RASim} y \ac{RAAs}. Los modelos anatómicos de los que se dispone no siempre se encuentran completos o carecen de la descripción mecánica de los tejidos. 
-    El algoritmo propuesto se integrará en la herramienta \ac{TPTVPH} permitiendo animar y adaptar las variaciones anatómicas generadas. El método estará en comunicación con otros módulos desarrollados dentro del proyecto. Además, se desarrollará un \emph{software} (\acs{Courseware}) que se encargará de la comunicación con los demás módulos, y gestionará la interacción del usuario en una plataforma de entrenamiento auto guiada.}
+    Un objetivo del proyecto \ac{RASimAs} es la creación de una base de datos con pacientes virtuales que representen una variabilidad anatómica media que posteriormente será utilizada en \ac{RASim} \del{y \ac{RAAs}}. Los modelos anatómicos de los que se disponen no siempre se encuentran completos o carecen de la descripción mecánica de los tejidos. \todo{es un poco repetitivo.}
+    El algoritmo propuesto se integrará en la herramienta \ac{TPTVPH}\todo{Creo que estas confundido TPTVPH es nuestra herramienta no la global} permitiendo animar y adaptar las variaciones anatómicas generadas. El método estará en comunicación con otros módulos desarrollados dentro del proyecto. \del{Además, se desarrollará un \emph{software} (\acs{Courseware}) para el simulador \ac{RASim} que se encargará de la comunicación con los demás módulos, y gestionará la interacción del usuario en una plataforma de entrenamiento auto guiada.}\todo{El courseware no es un objetivo. Lo que haces es desarrollar modulos del simulador de cara que este pueda utilizarse para entrenar a pacientes. No des muchos más detalles.} 
 
 %\todo{Idea, no se necesitan pacientes reales sino pacientes medios. No se necesita una deformación presica, sino plausible}
 
@@ -49,7 +52,8 @@ Con la hipótesis de partida enunciada, a continuación se presentan los objetiv
 
     \item Caso de uso: Simulador de radiología diagnóstica
 
-\new{En este caso de uso, el algoritmo propuesto permite al usuario modificar la postura del paciente con el objetivo de entrenar el procedimiento de radiología diagnóstica. En este procedimiento, el usuario debe posicionar al paciente virtual como se realiza en un entorno real, permitiendo obtener imágenes de rayos X simultáneamente, todo ello realizado en tiempos interactivos. Este simulador permite modificar la posición de un paciente virtual con el objetivo de comprobar distintas proyecciones radiográficas sin ningún riesgo para el paciente o el usuario. De esta forma, podrá ser usado por profesores o estudiantes de radiología como una herramienta adicional a los libros de texto.}
+\todo{Lo que tienes que vender aquí es que el posing del paciente es parte integral del procedimeinto y que se requiere un algorimo robusto que funcione en con tasas de refresco interactivas.}
+En este caso de uso, el algoritmo propuesto permite al usuario modificar la postura del paciente con el objetivo de entrenar el procedimiento de radiología diagnóstica.\todo{no has dicho nada} En este procedimiento, el usuario debe posicionar al paciente virtual como se realiza en un entorno real, permitiendo obtener imágenes de rayos X simultáneamente, todo ello realizado en tiempos interactivos. Este simulador permite modificar la posición de un paciente virtual con el objetivo de comprobar distintas proyecciones radiográficas sin ningún riesgo para el paciente o el usuario. De esta forma, podrá ser usado por profesores o estudiantes de radiología como una herramienta adicional a los libros de texto.
 \end{itemize}
 
 \end{itemize}
