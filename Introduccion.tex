@@ -66,7 +66,7 @@ Es por ello que, dado el riesgo que suelen representar este tipo de técnicas pa
     \item \textbf{Diversidad de procedimientos:} Existen infinidad de procedimientos médicos diferentes entre sí, que se caracterizan por utilizar instrumental específico y, además, donde se trabaja en áreas y sobre estructuras anatómicas diferentes. Esta situación dificulta el desarrollo de soluciones de propósito general.
     \item \textbf{Limitaciones en los dispositivos \ac{E/S}:} Muchas técnicas quirúrgicas requieren de la correcta interpretación de estímulos visuales,  propioceptivos y táctiles. Actualmente, los dispositivos E/S existentes están muy limitados a la hora de presentar este tipo de información al usuario. 
     \item \textbf{Simulación de fenómenos físicos complejos con tasas de refresco y latencias interactivas:} Muchas de las interacciones mecánicas no es posible simularlas físicamente en tiempos interactivos. Además, la complejidad aumenta al añadir la diversidad de tejidos y fenómenos naturales que deben contemplarse. 
-    \item \textbf{Dificultad de obtener modelos anatómicos adecuados:} En la actualidad, ninguna técnica de imagen médica (\ac{US}, \ac{TC}, \ac{IRM}...) es capaz de obtener descripciones completas de un paciente \cite{ferrante2017slice}\todo{buscar cita OK, NO PONEMOS CITA, esta la uso en el estado del arte, pero es de registro de imágenes, en donde explica que algunas técnicas usan más de una imagen}. Por otro lado, las imágenes obtenidas deben adaptarse a representaciones que puedan utilizarse durante la simulación.
+    \item \textbf{Dificultad de obtener modelos anatómicos adecuados:} En la actualidad, ninguna técnica de imagen médica (\ac{US}, \ac{TC}, \ac{IRM}...) es capaz de obtener descripciones completas de un paciente \new{\cite{mita}}. Por otro lado, las imágenes obtenidas deben adaptarse a representaciones que puedan utilizarse durante la simulación.
 \end{itemize}
 %\todo{creo que los dos últimos puntos son importantes de cara a justificar objetivos}
 
@@ -129,20 +129,26 @@ En primer lugar, \ac{RAAs} es un sistema de guiado que superpone información ad
 %
 \ac{RASim} es un simulador médico que recrea un entorno de \ac{RA} donde el usuario puede entrenar el procedimiento. El usuario se sitúa en frente de la mesa de trabajo donde podrá encontrar: un maniquí y los dispositivos de \ac{E/S}.
 El usuario interacciona con el sistema a través de una sonda de \ac{US}, con un \ac{tracker} magnético incorporado, y una aguja, acoplada a un dispositivo háptico. Estos dispositivos permiten al sistema seguir los movimientos del operador y proporcionar una respuesta háptica (en el caso de la aguja).
-El usuario puede seguir el avance del procedimiento gracias a dos pantallas. En una, se muestra una vista virtual de la sala de operaciones  y, en la otra, se muestra el interfaz del \ac{Courseware}\footnote{Es un software diseñado para fines educativos que sirve como ayuda o refuerzo del contenido} con la imagen simulada de \ac{US}.
+El usuario puede seguir el avance del procedimiento gracias a dos pantallas. En una, se muestra una vista virtual de la sala de operaciones  y, en la otra, se muestra el interfaz de la \ac{Courseware}\footnote{Es un software diseñado para fines educativos que sirve como ayuda o refuerzo del contenido} con la imagen simulada de \ac{US}.
 %
 \todo{Tienes que rehacer todo de aquí al final del párrafo. 1 Enu,era todos los modulos SW. Luego si quieres explica todos ellos. Pero no te metas en mucho detalle. Los detalles van al capitulo de RASim.  }
-Así mismo, el simulador se compone de varios módulos software que se encargan de la simulación física del sistema\todo{Tal y como está escrita esta frase parece que todos los módulos SW se encargan de la simulación.}. 
-El usuario podrá observar cómo se deforman los tejidos en contacto con los instrumentos médicos, a la vez que se genera una imagen de \ac{US} necesaria para el procedimiento. 
-El \ac{Courseware} convierte al simulador en una plataforma de autoevaluación y aprendizaje. Este software dirige al usuario a través del procedimiento mientras \new{coordina todos los módulos del simulador en función de las necesidades del entrenamiento. }. 
-\todo{Esto puede ir al capitulo de RASimAs} El usuario puede elegir entre modos de entrenamiento, donde la  aplicación registrará métricas de rendimiento con el objetivo de proporcionar retroalimentación sumativa y formativa. 
+\new{Así mismo, el simulador se compone de varios módulos software:}
+\begin{itemize}
+    \item Módulo de respuesta háptica para la aguja.
+    \item Simulación física entre los tejidos y los instrumentos médicos.
+    \item Módulo de simulación de imágenes de \ac{US}.
+    \item Renderizado de la escena virtual.
+    \item Plataforma de autoevaluación y aprendizaje (\acs{Courseware}).
+\end{itemize}
+
+Es importante destacar, que el módulo de \ac{Courseware} es el que convierte al simulador en una plataforma de entrenamiento. Este software dirige al usuario a través del procedimiento mientras \new{coordina todos los módulos del simulador en función de las necesidades del entrenamiento. } 
 %
 El simulador permite practicar el procedimiento completo en un entorno seguro, además de mejorar sus habilidades cognitivas y no cognitivas gracias a la realimentación que proporciona el sistema.
 
-Con el objetivo de enfrentar a los médicos a distintos escenarios que representen una variabilidad anatómica significativa, en el proyecto \ac{RASimAs} se propuso desarrollar un conjunto de herramientas con las que generar una base de datos de pacientes virtuales. \del{Este paquete de aplicaciones \del{desarrolladas con distintos objetivos y capaces de cooperar entre sí} permite la creación de pacientes virtuales medios que se utilizarán en \ac{RASim} y \ac{RAAs}}\todo{No aporta nada y no se utilzan en RAAs}. 
+Con el objetivo de enfrentar a los médicos a distintos escenarios que representen una variabilidad anatómica significativa, en el proyecto \ac{RASimAs}\new{ se ha propuesto desarrollar un entorno integrado de generación de pacientes virtuales (en inglés: \ac{ITGVPH}) con el que generar una base de datos que permite la creación de pacientes virtuales medios, utilizables en \ac{RASim}. }
 %
 \todo{Esta frase no tiene sentido 1. estructuras anatomicas, para generar modelos anatomicos 2. Que son las estructuras mecanicas?. Lo suyo es resumir el procedimiento de creación del paciente virtual o enumerar sus etapas.}
-Estas herramientas generan las estructuras anatómicas y mecánicas  necesarias de los modelos anatómicos y, adicionalmente, cambiar la postura de llegada del modelo por la posición requerida por el procedimiento.
+\new{Esta herramienta genera \ac{VPH} representativos a partir de un registro entre un modelo virtual comercial e imágenes de pacientes reales. También es capaz de generar el comportamiento mecánico  de los tejidos necesario para su simulación física, y, adicionalmente, cambiar la postura inicial del paciente virtual a la posición requerida por el procedimiento.}
 %\new{Por otra parte, este mismo sistema puede ser usado como plataforma de entrenamiento autoguiado en la que el usuario puede practicar el procedimiento gracias a la retroalimentación que el sistema proporciona.}
 
 %Se ha diseñado una mesa de trabajo donde el usuario interacciona con el sistema. En ella, se encuentran dos pantallas que sirve para proporcionar información visual al usuario. En una de ellas se puede visualizar una vista de la sala de operaciones virtual y en otra, se muestra la vista del software de entrenamiento junto con la imagen simulada de \ac{US}. En la mesa de trabajo, el usuario maneja una sonda de \ac{US}, con un \ac{tracker} magnético incorporado, y una aguja, acoplada a un dispositivo háptico, que permite al sistema el seguimiento de los movimientos del usuario. El simulador es capaz de simular la interacción y deformación de los instrumentos y tejidos, y generar una imagen de \ac{US}. El \ac{Courseware} es el encargado de dirigir al usuario a través del procedimiento y gestionar todos los modulos del simulador. 
@@ -167,15 +173,14 @@ Estas herramientas generan las estructuras anatómicas y mecánicas  necesarias 
     \label{fig:wp_rasimas}
 \end{figure}
 
-El proyecto \ac{RASimAs} se organiza en los ocho \ac{WP} que se pueden observar en la figura \ref{fig:wp_rasimas}. Los \ac{WP} 1, 7 y 8 se encargarán de tareas de gestión: coordinación, control de calidad, diseminación de resultados y explotación de los prototipos. El \ac{WP} 2 desarrollará la plataforma donde se integrarán todos los módulos de software y datos generados de los siguientes paquetes. En los \ac{WP} 3 y 4 se desarrollarán los componentes necesarios de los dos prototipos que se implementan en el \ac{WP} 5. Por último, el \ac{WP} 6 se encarga de la evaluación clínica tanto del prototipo de \ac{RASim} como del \ac{RAAs}.  
-%\del{3. El paquete 2 se encarga del desarrollo de la plataforma en la que se integrará el sw y los datos generados. 4. El 3, 4 y 5 desarrollan los principales modulos del los dos sistemas. Son en los que hemos estado involucrados (la URJC y tu en tu tesis) y  los describiras en detalle más adelante. 5. paquete 6 evaluación del proyectoson de gestión y diseminación. }
-%
-%\del{Es una práctica habitual en gestión de proyectos dividir los trabajos a realizar en \ac{WP}, y estos a su vez se suelen dividir en tareas que son asignadas a cada miembro del proyecto.} 
+El proyecto \ac{RASimAs} se organiza en los ocho \ac{WP} que se pueden observar en la figura \ref{fig:wp_rasimas}. Los \ac{WP} 1, 7 y 8 se encargarán de tareas de gestión: coordinación, control de calidad, diseminación de resultados y explotación de los prototipos. El \ac{WP} 2 desarrollará la plataforma donde se integrarán todos los módulos de software y datos generados de los siguientes paquetes. En los \ac{WP} 3 y 4 se desarrollarán los componentes necesarios de los dos prototipos que se implementan en el \ac{WP} 5. Por último, el \ac{WP} 6 se encarga de la evaluación clínica tanto del prototipo de \ac{RASim} como del \ac{RAAs}. 
 
+\new{En el capítulo \ref{cap:rasim} , se introducirán los \ac{WP} 3, 4 y 5 y las tareas en las que ha contribuido de manera activa la \ac{URJC} y donde se encuadra la mayor parte de la investigación realizada en esta tesis.}
 
 
 \subsubsection{Colaboración con la \acl{Bangor}}
-\todo{Aaron, se que soy un pesado, pero cuando te digo que pienses cada frase me refiero a esto. El motivo por el que las colaboraciones entre miembros del proyecto van más allá de las tareas del mismo, NO es que trabajen distintas instituciones, SINO que estos proyectos permiten conocer de forma más próxima el trabajo que se está realizando en otros laboratorios }
+%\todo{Aaron, se que soy un pesado, pero cuando te digo que pienses cada frase me refiero a esto. El motivo por el que las colaboraciones entre miembros del proyecto van más allá de las tareas del mismo, NO es que trabajen distintas instituciones, SINO que estos proyectos permiten conocer de forma más próxima el trabajo que se está realizando en otros laboratorios }
+%\todo{Para nada considero que seas pesado, al revés, el conformista soy yo...}
 %
 Uno de las ventajas que tienen los proyectos internacionales de esta índole es que mejora la visibilidad del trabajo realizado por los miembros del consorcio, fomentando colaboraciones entre socios más allá del ámbito del proyecto.
 %

@@ -23,38 +23,35 @@ Por todo lo anterior, el objetivo de \ac{RASimAs},  no es crear una base de dato
 %\del{Por tanto, se hace necesario disponer de algún método que pueda capturar variaciones anatómicas, de tal manera que pueda incorporarlas al simulador que se estuviera utilizando. En este caso, en lugar de tener un modelo anatómico con una configuración concreta, % En la motivación, cuando hables de la base de datos, di que en muchas aplicaciones lo importante es la variabilidad anatómica, no trabajar con pacientes reales. }
 %basta con poder transformar cualquier modelo de paciente virtual existente a una pose plausible, pudiéndose utilizar en cualquier simulador que así lo requiera. De esta forma, se intenta abarcar la mayor cantidad posible de situaciones que puedan ayudar a los aprendices a mejorar su entrenamiento y por tanto su profesionalidad .}
  
-Cabe destacar que, dentro de la generación de imágenes por computador, existen diferentes técnicas para poder animar personajes virtuales. 
-\del{Es habitual que estos métodos sean utilizados para animar estructuras anatómicas con diversas finalidades como pueden ser: cinematográfica, lúdica o sanitarias.}\todo{esta frase no es verdad.} 
-Estas técnicas suelen estar divididas comúnmente entre métodos geométricos y métodos basados en física. Ambos enfoques presentan ventajas \new{e inconvenientes} \del{sobre los otros} y su uso \new {dependerá de} \del{se extiende en base a} sus características. 
+Cabe destacar que, dentro de la generación de imágenes por computador, existen diferentes técnicas para poder animar personajes virtuales.
+Estas técnicas suelen estar divididas comúnmente entre métodos geométricos y métodos basados en física. Ambos enfoques presentan ventajas e inconvenientes sobre los otros y su uso dependerá de sus características. 
 
-Considerando los problemas citados anteriormente y \new{las restricciones impuestas por el proyecto \ac{RASimAs} (ver apartado \ref{XXXXXXXX}), esta tesis pretende comprobar si es posible diseñar un método geométrico que permita entrenar en el entrono medico de forma efectiva.}\del{dentro del contexto del proyecto europeo \ac{RASimAs}, la motivación de esta tesis es comprobar si es posible diseñar un método geométrico que pueda solventar determinados problemas.} A continuación, se muestran las diferencias \new{entre ambas aproximaciones}\del{que tienen las técnicas geométricas frente a los métodos basados en físicas:}
+Considerando los problemas citados anteriormente y las restricciones impuestas por el proyecto \ac{RASimAs} (ver apartado \ref{posing:discusion}), esta tesis pretende comprobar si es posible diseñar un método geométrico que permita \new{reposicionar pacientes virtuales que se utilizarán para entrenar en un entorno médico de forma efectiva}. A continuación, se muestran las diferencias entre ambas aproximaciones:
 
 \begin{itemize}
-\item Los métodos basados en \new{modelos físicos}\del{físicas} se centran en conseguir deformaciones \new{plausibles}\del{realistas REALISTAS NO QUIERE DECIR NADA}, frente a los geométricos que proporcionan soluciones plausibles. \new{Es decir, deformaciones que el usuario pueda interpretar como reales.} 
+\item Los métodos basados en modelos físicos se centran en conseguir deformaciones plausibles, frente a los geométricos que proporcionan soluciones \new{creibles}\del{plausibles}. Es decir, deformaciones que el usuario pueda interpretar como reales. 
 %\todo{esto es una ventaja? quizás habría que poner arriba en vez de ventajas, diferencias}
 %OK
 
 
-\item Los algoritmos geométricos son más robustos\new{. En la mayoría de los casos son soluciones \emph{ad hoc} que no sufren de los problemas de estabilidad de los métodos numéricos que se utilizan para resolver las ecuaciones diferenciales que modelan el comportamiento de los distintos objetos físicos. }\del{ante la falta de una descripción completa de un modelo anatómico. Debido a las dificultades que tienen la adquisición de imágenes médicas, no es habitual que todas las estructuras anatómicas estén presentes o se puedan capturar el comportamiento de todas ellas.}
+\item Los algoritmos geométricos son más robustos. En la mayoría de los casos son soluciones \emph{ad hoc} que no sufren de los problemas de estabilidad de los métodos numéricos que se utilizan para resolver las ecuaciones diferenciales que modelan el comportamiento de los distintos objetos físicos. %\del{ante la falta de una descripción completa de un modelo anatómico. Debido a las dificultades que tienen la adquisición de imágenes médicas, no es habitual que todas las estructuras anatómicas estén presentes o se puedan capturar el comportamiento de todas ellas.}
 
-\iten \new{Por otro lado, los métodos basados física requieren caracterizar mecánicamente los modelos que se van a simular. Está información no siempre puede obtenerse de forma precisa a partir de las imágenes médicas.}
+\item Por otro lado, los métodos basados física requieren caracterizar mecánicamente los \new{tejidos} que se van a simular. Está información no siempre puede obtenerse de forma precisa a partir de las imágenes médicas.
 
-\item \new{Debido a la complejidad de los comportamientos que deben simularse, la mayoría de los algoritmos biomecánicos actuales se centran en el comportamiento de estructuras concretas, como por ejemplo los sistemas de animación musculo-esqueleto que obvian las interacciones con otras estructuras. }
+\item Debido a la complejidad de los comportamientos que deben simularse, la mayoría de los algoritmos biomecánicos actuales se centran en el comportamiento de estructuras concretas, como por ejemplo los sistemas de animación músculo-esquelético que obvian las interacciones con otras estructuras. 
 
-\item Es habitual que los métodos geométricos tengan tasas de refresco altas, en comparación a los algoritmos basados en física\del{s}. Estas técnicas habitualmente son demasiado costosas para conseguir interactividad\del{, sea necesario la intervención de un usuario dado su complejidad o se centren en una zona limitada de la anatomía??????????????????????}.\new{El problema se agrava  cuanto más complejos sean los comportamientos que se quieran simular. Destacar que la simulación biomédica tiene un alto grado de complejidad debido a la variedad de estructuras y comportamientos mecánicos a simular.}
+\item Es habitual que los métodos geométricos tengan tasas de refresco altas, en comparación a los algoritmos basados en física. Estas técnicas habitualmente son demasiado costosas para conseguir interactividad. El problema se agrava  cuanto más complejos sean los comportamientos que se quieran simular. Destacar que la simulación biomédica tiene un alto grado de complejidad debido a la variedad de estructuras y comportamientos mecánicos a simular.
 
-\item \del{Debido a su popularidad, actualmente los métodos geométricos están diseñados para aprovechar totalmente la arquitectura de las tarjetas gráficas.}
-    
-\item \del{Los modelos basados en físicas están muy extendidos, aunque en su gran mayoría se centran solo en el sistema \new{músculo-esquelético} \del{musculoesqueletal}.} \todo{El sistema locomotor, llamado también sistema músculo-esquelético.}
 \end{itemize}
 
 Disponer de un método geométrico que permita adaptar la postura a modelos anatómicos humanos ayudará a:
 
 \begin{itemize}
     \item Poder modificar cualquier modelo virtual con estructuras anatómicas internas a la posición requerida por un procedimiento médico.
-    \item \new{Poder adaptar cualquier pacientes virtual aunque este presenten tejidos incompletos o cuyas propiedades mecánicas no hayan sido registradas.}
-    \item \del{El método permite una interacción inmediata y servirá para utilizarse en simuladores de entrenamiento médico????}
-    \item \todo{Su flexibilidad y su rapidez le hacen posible incorporarlo en cualquier simulador o herramienta de \ac{RV}. REDACTA BIEN}
+    \item Poder adaptar cualquier pacientes virtual aunque este presenten tejidos incompletos o cuyas propiedades mecánicas no hayan sido registradas.
+%\del{El método permite una interacción inmediata y servirá para utilizarse en simuladores de entrenamiento médico????}
+%\todo{Su flexibilidad y su rapidez le hacen posible incorporarlo en cualquier simulador o herramienta de \ac{RV}. REDACTA BIEN}
+    \item \new{En el contexto del entrenamiento médico, poder incorporarlo en cualquier simulador o herramienta de \ac{RV} gracias a su flexibilidad y sus tasas de refresco interactivas.} 
 \end{itemize}
 
 
