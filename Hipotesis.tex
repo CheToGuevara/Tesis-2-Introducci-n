@@ -13,30 +13,32 @@ Por ello, nuevas plataformas de entrenamiento médico están incorporando datos 
 \begin{enumerate}
    %\item Los datos anatómicos de los pacientes virtuales son estáticos y representan poca variabilidad.
     %\item En cada simulador se suele crear modelos anatómicos específicos y no son transferibles entre ellos.
-    \item \new{Ningún método de adquisición de imagen médica es capaz de registrar todos los tejidos de un paciente.\todo{yo pondría ejemplos} Si bien es cierto que se podrían combinar datos procedentes de distintas técnicas es poco habitual dado que se presentan problemas de: coste, registro de imágenes, técnicas contraindicadas para algunos pacientes (por ejemplo el \ac{TC} abdominal en embarazadas)...}
-    \item A partir las distintas técnicas de imagen médica es difícil obtener las propiedades mecánicas de todos o alguno de los tejidos registrados.
-    \item Es habitual que las imágenes médicas se capturen con en paciente en una posición distinta a la requerida en la intervención.
-    \item No siempre están disponibles información específica del paciente o solo se trata de una zona concreta del paciente. \todo{No entiendo este punto}
+    \item Ningún método de adquisición de imagen médica es capaz de registrar todos los tejidos de un paciente.
+    \ac{US} es la técnica más barata y segura pero su rango es muy limitado, mientras que técnicas como \ac{TC} y \ac{IRM} capturan grandes porciones de tejidos, pero son costosas y/o tiene riesgos asociados. 
+    Si bien es cierto que se podrían combinar datos procedentes de distintas técnicas, es poco habitual dado  los numerosos problemas que se presentan: coste, registro de imágenes, técnicas contraindicadas para algunos pacientes (por ejemplo, el \ac{TC} abdominal en embarazadas), etc.
+    \item No es fácil obtener las propiedades mecánicas  de todos los tejidos registrados según las distintas técnicas de imagen médica utilizadas.
+    \item Es habitual que las imágenes médicas se capturen con el paciente en una posición distinta a la requerida en la intervención.
+    \item No siempre están disponibles toda la información específica del paciente o solo se trata de una zona concreta del paciente.
 \end{enumerate}
 %
-Por todo lo anterior, el objetivo de \ac{RASimAs},  no es crear una base de datos de pacientes reales, sino de pacientes virtuales en la que estén representadas el mayor numero de representaciones anatómicas posibles. Estos pacientes virtuales se construirán promediando datos provenientes de pacientes reales. Puesto que no se trata de ensayar el procedimiento en un paciente real, el método, que adapte la pose de los pacientes virtuales a la requerida en el procedimiento, no tiene porque ser precisó desde el punto de vista fisco. Basta con que el resultado sea plausible, permitiendo al médico en formación entrenar de forma efectiva.
+Por todo lo anterior, el objetivo de \ac{RASimAs} no solo es crear una base de datos de pacientes reales, sino de pacientes virtuales en la que estén representadas el mayor número de variaciones anatómicas posibles. Estos pacientes virtuales se construirán promediando datos provenientes de pacientes reales. Puesto que no se trata de ensayar el procedimiento en un paciente real, el método, que adapte la pose de los pacientes virtuales a la requerida en el procedimiento, no tiene por qué ser precisó desde el punto de vista físico. Basta con que el resultado sea plausible, permitiendo al médico en formación entrenar de forma efectiva.
 %\del{Por tanto, se hace necesario disponer de algún método que pueda capturar variaciones anatómicas, de tal manera que pueda incorporarlas al simulador que se estuviera utilizando. En este caso, en lugar de tener un modelo anatómico con una configuración concreta, % En la motivación, cuando hables de la base de datos, di que en muchas aplicaciones lo importante es la variabilidad anatómica, no trabajar con pacientes reales. }
 %basta con poder transformar cualquier modelo de paciente virtual existente a una pose plausible, pudiéndose utilizar en cualquier simulador que así lo requiera. De esta forma, se intenta abarcar la mayor cantidad posible de situaciones que puedan ayudar a los aprendices a mejorar su entrenamiento y por tanto su profesionalidad .}
  
 Cabe destacar que, dentro de la generación de imágenes por computador, existen diferentes técnicas para poder animar personajes virtuales.
 Estas técnicas suelen estar divididas comúnmente entre métodos geométricos y métodos basados en física. Ambos enfoques presentan ventajas e inconvenientes sobre los otros y su uso dependerá de sus características. 
 
-Considerando los problemas citados anteriormente y las restricciones impuestas por el proyecto \ac{RASimAs} (ver apartado \ref{posing:discusion}), esta tesis pretende comprobar si es posible diseñar un método geométrico que permita \new{reposicionar pacientes virtuales que se utilizarán para entrenar en un entorno médico de forma efectiva}. A continuación, se muestran las diferencias entre ambas aproximaciones:
+Considerando los problemas citados anteriormente y las restricciones impuestas por el proyecto \ac{RASimAs} (ver apartado \ref{posing:discusion}), esta tesis pretende comprobar si es posible diseñar un método geométrico que permita reposicionar pacientes virtuales, que se utilizarán para entrenar en un entorno médico de forma efectiva. A continuación, se muestran las diferencias entre ambas aproximaciones:
 
 \begin{itemize}
-\item Los métodos basados en modelos físicos se centran en conseguir deformaciones plausibles, frente a los geométricos que proporcionan soluciones \new{creibles}\del{plausibles}. Es decir, deformaciones que el usuario pueda interpretar como reales. 
+\item Los métodos basados en modelos físicos se centran en conseguir deformaciones precisas, frente a los geométricos que proporcionan soluciones plausibles. Es decir, deformaciones que el usuario pueda interpretar como reales. 
 %\todo{esto es una ventaja? quizás habría que poner arriba en vez de ventajas, diferencias}
 %OK
 
 
-\item Los algoritmos geométricos son más robustos. En la mayoría de los casos son soluciones \emph{ad hoc} que no sufren de los problemas de estabilidad de los métodos numéricos que se utilizan para resolver las ecuaciones diferenciales que modelan el comportamiento de los distintos objetos físicos. %\del{ante la falta de una descripción completa de un modelo anatómico. Debido a las dificultades que tienen la adquisición de imágenes médicas, no es habitual que todas las estructuras anatómicas estén presentes o se puedan capturar el comportamiento de todas ellas.}
+\item Los algoritmos geométricos son más robustos. En la mayoría de los casos son soluciones \emph{ad hoc} que no sufren de los problemas de estabilidad de los métodos numéricos que se utilizan para resolver las ecuaciones diferenciales que modelan el comportamiento de los objetos físicos. %\del{ante la falta de una descripción completa de un modelo anatómico. Debido a las dificultades que tienen la adquisición de imágenes médicas, no es habitual que todas las estructuras anatómicas estén presentes o se puedan capturar el comportamiento de todas ellas.}
 
-\item Por otro lado, los métodos basados física requieren caracterizar mecánicamente los \new{tejidos} que se van a simular. Está información no siempre puede obtenerse de forma precisa a partir de las imágenes médicas.
+\item Por otro lado, los métodos basados física requieren caracterizar mecánicamente los tejidos que se van a simular. Está información no siempre puede obtenerse de forma precisa a partir de las imágenes médicas.
 
 \item Debido a la complejidad de los comportamientos que deben simularse, la mayoría de los algoritmos biomecánicos actuales se centran en el comportamiento de estructuras concretas, como por ejemplo los sistemas de animación músculo-esquelético que obvian las interacciones con otras estructuras. 
 
@@ -48,10 +50,10 @@ Disponer de un método geométrico que permita adaptar la postura a modelos anat
 
 \begin{itemize}
     \item Poder modificar cualquier modelo virtual con estructuras anatómicas internas a la posición requerida por un procedimiento médico.
-    \item Poder adaptar cualquier pacientes virtual aunque este presenten tejidos incompletos o cuyas propiedades mecánicas no hayan sido registradas.
+    \item Poder adaptar cualquier paciente virtual, aunque este presente tejidos incompletos o cuyas propiedades mecánicas no hayan sido registradas.
 %\del{El método permite una interacción inmediata y servirá para utilizarse en simuladores de entrenamiento médico????}
 %\todo{Su flexibilidad y su rapidez le hacen posible incorporarlo en cualquier simulador o herramienta de \ac{RV}. REDACTA BIEN}
-    \item \new{En el contexto del entrenamiento médico, poder incorporarlo en cualquier simulador o herramienta de \ac{RV} gracias a su flexibilidad y sus tasas de refresco interactivas.} 
+    \item En el contexto del entrenamiento médico, poder incorporarlo en cualquier simulador o herramienta de \ac{RV} gracias a su flexibilidad y sus tasas de refresco interactivas. 
 \end{itemize}
 
 
